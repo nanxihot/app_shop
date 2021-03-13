@@ -6,19 +6,19 @@
         <img src="../assets/logo.png" alt="" />
       </div>
       <!-- 登录表单 -->
-      <el-form class="login_form">
+      <el-form ref="loginFormRef" :model="loginform" :rules="loginFormRule" class="login_form">
         <!-- 用户名 -->
-        <el-form-item>
-          <el-input prefix-icon="el-icon-user-solid"></el-input>
+        <el-form-item prop="username">
+          <el-input v-model="loginform.username" prefix-icon="el-icon-user-solid"></el-input>
         </el-form-item>
         <!-- 密码 -->
-        <el-form-item>
-          <el-input prefix-icon="el-icon-lock"></el-input>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="loginform.password" prefix-icon="el-icon-lock"></el-input>
         </el-form-item>
         <!-- 按钮 -->
         <el-form-item class="btns">
-          <el-button type="primary">登录</el-button>
-          <el-button type="info">重置</el-button>
+          <el-button type="primary" @click="login">登录</el-button>
+          <el-button @click="restLoginForm" type="info">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -29,9 +29,48 @@
 export default {
   props: {},
   data () {
-    return {}
+    return {
+      // 登录表单的数据绑定对象
+      loginform: {
+        username: 'admin',
+        password: '123456'
+      },
+      // 登录表单的验证规则对象
+      loginFormRule: {
+        // 验证用户名是否合法
+        username: [
+          { required: true, message: '请输入登录名称', trigger: 'blur' },
+          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+        ],
+        // 验证密码是否合法
+        password: [
+          { required: true, message: '请输入登录密码', trigger: 'blur' },
+          { min: 6, max: 15, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+        ]
+      }
+    }
   },
-  methods: {},
+  methods: {
+    // 重置登录表单
+    restLoginForm () {
+      this.$refs.loginFormRef.resetFields()
+    },
+    // 登录
+    login () {
+      this.$refs.loginFormRef.validate((valid) => {
+        if (!valid) return
+        this.$http.post('login', this.loginform).then(res => {
+          const { data } = res
+          if (data.meta.status !== 200) return this.$message.error('登录失败')
+          this.$message.success('登录成功')
+          // 保存token到sessionStorage中
+          window.sessionStorage.setItem('token', data.data.token)
+          // 登录成功跳转到Home组件
+          this.$router.push('/home')
+        })
+      })
+    }
+  },
   components: {}
 }
 </script>

@@ -5,11 +5,24 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', redirect: '/login' },
-  { path: '/login', component: Login }
+  { path: '/login', component: Login },
+  { path: '/home', component: () => import('../components/Home.vue') }
 ]
 
 const router = new VueRouter({
   routes
+})
+
+// 挂载路由导航守卫
+router.beforeEach((to, from, next) => {
+  // to 将要跳转的路径
+  // from 从那个路径跳转来
+  // next() 放行 nex('/login') 强制跳转
+  if (to.path === '/login') return next()
+  // 获取token 存在放行 不存在跳转到登录页
+  const tokenStr = window.sessionStorage.getItem('token')
+  if (!tokenStr) return next('/login')
+  next()
 })
 
 export default router
