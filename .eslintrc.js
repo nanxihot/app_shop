@@ -49,7 +49,11 @@ module.exports = {
     'vue/valid-v-once': 'off',
     'vue/valid-v-pre': 'off',
     'vue/valid-v-show': 'off',
-    'vue/valid-v-text': 'off'
+    'vue/valid-v-text': 'off',
+    'space-before-function-paren': 0,
+    'semi': 0,
+    'quotes': 0,
+    'comma-dangle': 0
   },
 
   'extends': [
