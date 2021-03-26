@@ -61,7 +61,8 @@ export default {
         if (!valid) return
         this.$http.post('login', this.loginform).then(res => {
           const { data } = res
-          if (data.meta.status !== 200) return this.$message.error('登录失败')
+          console.log(res)
+          if (data.meta.status !== 200) return this.$message.error(data.meta.msg)
           this.$message.success('登录成功')
           // 保存token到sessionStorage中
           window.sessionStorage.setItem('token', data.data.token)

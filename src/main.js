@@ -1,3 +1,11 @@
+/*
+ * @Author: 张闯
+ * @Date: 2021-03-11 14:37:12
+ * @LastEditors: 张闯
+ * @LastEditTime: 2021-03-24 15:06:03
+ * @Description:
+ * @FilePath: \src\main.js
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
