@@ -1,3 +1,11 @@
+/*
+ * @Author: 张闯
+ * @Date: 2021-03-11 14:37:12
+ * @LastEditors: 张闯
+ * @LastEditTime: 2021-03-26 18:07:47
+ * @Description:
+ * @FilePath: \src\router\index.js
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/login.vue'
@@ -25,6 +33,10 @@ const routes = [
     {
       path: '/roles',
       component: () => import('../components/power/Roles.vue')
+    },
+    {
+      path: '/categories',
+      component: () => import('../components/goods/Categories.vue')
     },
     ]
   }

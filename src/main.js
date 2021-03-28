@@ -2,7 +2,7 @@
  * @Author: 张闯
  * @Date: 2021-03-11 14:37:12
  * @LastEditors: 张闯
- * @LastEditTime: 2021-03-24 15:06:03
+ * @LastEditTime: 2021-03-27 13:25:10
  * @Description:
  * @FilePath: \src\main.js
  */
@@ -11,6 +11,7 @@ import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
 import './assets/css/global.css'
+import treeTable from 'vue-table-with-tree-grid'
 
 import axios from 'axios'
 // 配置请求的根路径
@@ -22,6 +23,8 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
+
+Vue.component("tree-table", treeTable)
 
 new Vue({
   router,
