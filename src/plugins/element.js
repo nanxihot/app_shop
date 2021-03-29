@@ -2,7 +2,7 @@
  * @Author: 张闯
  * @Date: 2021-03-11 14:40:32
  * @LastEditors: 张闯
- * @LastEditTime: 2021-03-27 15:34:30
+ * @LastEditTime: 2021-03-28 21:42:18
  * @Description:
  * @FilePath: \src\plugins\element.js
  */
@@ -17,7 +17,8 @@ import {
   Card, Row, Col, Switch,
   Table, TableColumn, Tooltip,
   Pagination, Dialog, MessageBox,
-  Tag, Tree, Select, Option, Cascader
+  Tag, Tree, Select, Option, Cascader,
+  Alert, Tabs, TabPane
 } from 'element-ui'
 
 Vue.use(Button)
@@ -47,5 +48,8 @@ Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Cascader)
+Vue.use(Alert)
+Vue.use(Tabs)
+Vue.use(TabPane)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
