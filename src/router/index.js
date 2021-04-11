@@ -2,7 +2,7 @@
  * @Author: 张闯
  * @Date: 2021-03-11 14:37:12
  * @LastEditors: 张闯
- * @LastEditTime: 2021-03-28 20:30:23
+ * @LastEditTime: 2021-03-29 17:02:35
  * @Description:
  * @FilePath: \src\router\index.js
  */
@@ -41,6 +41,14 @@ const routes = [
     {
       path: '/params',
       component: () => import('../components/goods/Params.vue')
+    },
+    {
+      path: '/goods',
+      component: () => import('../components/goods/List.vue')
+    },
+    {
+      path: '/goods/add',
+      component: () => import('../components/goods/Add.vue')
     },
     ]
   }

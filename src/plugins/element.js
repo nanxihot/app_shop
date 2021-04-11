@@ -2,7 +2,7 @@
  * @Author: 张闯
  * @Date: 2021-03-11 14:40:32
  * @LastEditors: 张闯
- * @LastEditTime: 2021-03-28 21:42:18
+ * @LastEditTime: 2021-03-29 22:42:45
  * @Description:
  * @FilePath: \src\plugins\element.js
  */
@@ -18,7 +18,8 @@ import {
   Table, TableColumn, Tooltip,
   Pagination, Dialog, MessageBox,
   Tag, Tree, Select, Option, Cascader,
-  Alert, Tabs, TabPane
+  Alert, Tabs, TabPane, Steps, Step, CheckboxGroup,
+  Checkbox, Upload
 } from 'element-ui'
 
 Vue.use(Button)
@@ -51,5 +52,10 @@ Vue.use(Cascader)
 Vue.use(Alert)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(CheckboxGroup)
+Vue.use(Checkbox)
+Vue.use(Upload)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
